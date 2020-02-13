@@ -114,7 +114,7 @@
 
         //邮件发送
         if($isEmail && $result){
-            $body = "<h2>今日提交记录</h2><br>"."<ol>"
+            $body = "<h2>今日提交记录</h2>"."<ol>"
                     ."<li>当天温度：".$temp."</li>"
                     ."<li>表现症状：".$sig."</li>"
                     ."<li>就医情况：".$isTri."</li>"
