@@ -3,7 +3,7 @@
      * 该代码仅供学习交流，请合理使用，出现任何纠纷与作者无关
      * 疫情期间：请如实报告自己的身体情况
      */
-
+    require("./email.php");
     //在使用以下之前，需要注册好账号，并加入班级，这里对于疫情基本情况没有处理，需要手动填写
 
     $phone = "15600000000";       //登录手机号
@@ -17,8 +17,21 @@
     $reTou = "无";                //最新接触
     $site = "抚顺市";             //地址
 
+
+    //是否需要邮件提示
+    $isEmail = false;                  //开启邮件提示
+    $smtpServer = "smtp.xxxxxx.com";   //发送者：smtp服务器地址
+    $smtpPort = 25;                    //发送者：端口号
+    $email = "xxxxxxx@xxx.com";        //发送者：email
+    $password = "************";        //发送者：email密码
+    $name = "自动助手";                 //发送者：名称 
+    $reName = "收件人昵称";             //接收者：名称
+    $reEmail = "xxxxxxxxx@xxx.com";    //接收者：email 可以填发送者email，相当于自己给自己发邮件
+    $title = "健康日报自动报告";         //邮件标题
+
+
     //开始自动提交
-    auto($phone, $pwd, $suburl, $temp, $sig, $isTri, $isSpl, $reTou, $site);
+    auto($phone, $pwd, $suburl, $temp, $sig, $isTri, $isSpl, $reTou, $site, $isEmail, $smtpServer, $smtpPort, $email, $password, $name, $reName, $reEmail, $title);
     exit();
 
 
@@ -33,7 +46,7 @@
     /**
      * 自动提交脚本
      */
-    function auto($phone, $pwd, $suburl, $temp, $sig, $isTri, $isSpl, $reTou, $site){
+    function auto($phone, $pwd, $suburl, $temp, $sig, $isTri, $isSpl, $reTou, $site, $isEmail, $smtpServer, $smtpPort, $email, $password, $name, $reName, $reEmail, $title){
         //获取cookie和token
         $curl =curl_init("http://banjimofang.com/student/login");
         curl_setopt($curl,CURLOPT_RETURNTRANSFER,1);
@@ -98,6 +111,19 @@
         // curl_setopt($curl, CURLOPT_ACCEPT_ENCODING, "gzip,deflate");
         // curl_setopt($curl, CURLOPT_COOKIEFILE, $cookie_file);
         // $result = curl_exec($curl);
+
+        //邮件发送
+        if($isEmail && $result){
+            $body = "<h2>今日提交记录</h2><br>"."<ol>"
+                    ."<li>当天温度：".$temp."</li>"
+                    ."<li>表现症状：".$sig."</li>"
+                    ."<li>就医情况：".$isTri."</li>"
+                    ."<li>隔离情况：".$isSpl."</li>"
+                    ."<li>最新接触：".$reTou."</li>"
+                    ."<li>当前位置：".$site."</li>"
+                    ."</ol>";
+            sendEmail($isEmail, $smtpServer, $smtpPort, $email, $password, $name, $reName, $reEmail, $title, $body); 
+        }
 
         curl_close($curl);
         return $result;

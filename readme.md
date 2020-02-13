@@ -61,6 +61,9 @@ $reTou = "无";               //最新接触
 $site = "抚顺市";             //地址
 ```
 
+> 有同学反馈：一开始使用的微信登录，找不到手机号和密码。 
+> **解决** ：手机号是自己微信手机号，密码可以在 http://banjimofang.com/resetpwd/student 进行设置。
+
 #### 2.2.3 创建自动任务
 
 编辑任务，第一次使用会让选择编辑器，选择3，vim-basic
@@ -70,7 +73,36 @@ crontab -e
 ```
 
 找的一行空白处，添加如下代码
+> 其中 00 08 表示每天早上8点进行自动提交，前一个数表示分钟，后一个数表示时钟，可自己调整
 
 ```c
 00 08 * * * php -f /home/test/Curl-banjimofang/auto.php
 ```
+
+### 2.3 开启邮件提醒
+
+邮件提醒可以自行决定是否使用，默认不使用
+
+<img src="./imgs/email.png" alt="email" style="zoom:67%;" />
+
+打开文件
+
+```shell
+vim ./Curl-banjimofang/auto.php
+```
+
+修改如下内容
+
+``` php
+//是否需要邮件提示
+$isEmail = false;                //开启邮件提示。true打开，false关闭
+$smtpServer = "smtp.xxxxxx.com"; //发送者：smtp服务器地址
+$smtpPort = 25;                  //发送者：端口号
+$email = "xxxxxxx@xxx.com";      //发送者：email
+$password = "************";      //发送者：email密码
+$name = "自动助手";               //发送者：名称 
+$reName = "收件人昵称";           //接收者：名称
+$reEmail = "xxxxxxxxx@xxx.com"; //接收者：email 可以填发送者email，相当于自己给自己发邮件
+$title = "健康日报自动报告";       //邮件标题
+```
+
