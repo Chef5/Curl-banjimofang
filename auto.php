@@ -3,7 +3,7 @@
      * 该代码仅供学习交流，请合理使用，出现任何纠纷与作者无关
      * 疫情期间：请如实报告自己的身体情况
      */
-    require("./email.php");
+    require("email.php");
     ini_set('date.timezone','Asia/Shanghai');
     //在使用以下之前，需要注册好账号，并加入班级，这里对于疫情基本情况没有处理，需要手动填写
 
