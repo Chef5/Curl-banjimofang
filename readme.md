@@ -83,7 +83,7 @@ crontab -e
 
 邮件提醒可以自行决定是否使用，默认不使用
 
-<img src="./imgs/email.png" alt="email" style="zoom:67%;" />
+<img src="./imgs/email.png" alt="email" style="zoom:50%;" />
 
 打开文件
 
@@ -95,14 +95,14 @@ vim ./Curl-banjimofang/auto.php
 
 ``` php
 //是否需要邮件提示
-$isEmail = false;                //开启邮件提示。true打开，false关闭
-$smtpServer = "smtp.xxxxxx.com"; //发送者：smtp服务器地址
-$smtpPort = 25;                  //发送者：端口号
-$email = "xxxxxxx@xxx.com";      //发送者：email
-$password = "************";      //发送者：email密码
-$name = "自动助手";               //发送者：名称 
-$reName = "收件人昵称";           //接收者：名称
-$reEmail = "xxxxxxxxx@xxx.com"; //接收者：email 可以填发送者email，相当于自己给自己发邮件
-$title = "健康日报自动报告";       //邮件标题
+$isEmail = false;                  //开启邮件提示
+$smtpServer = "smtp.qq.com";      //发送者：smtp服务器地址
+$smtpPort = 465;                  //发送者：端口号
+$email = "xxxxx@qq.com";          //发送者：email账号
+$password = "****************";   //发送者：email密码(qq邮箱填授权码)
+$name = "自动助手";                //发送者：名称
+$reName = "尊贵的主人";            //接收者：名称
+$reEmail = "xxxxx@qq.com";        //接收者：email 可以填发送者email，相当于自己给自己发邮件
+$title = "健康日报自动填写完成(".date('m-d').")";       //邮件标题
 ```
-
+> 邮箱默认使用SSL，如果不需要，请修改email.php文件

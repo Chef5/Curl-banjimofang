@@ -4,6 +4,7 @@
      * 疫情期间：请如实报告自己的身体情况
      */
     require("./email.php");
+    ini_set('date.timezone','Asia/Shanghai');
     //在使用以下之前，需要注册好账号，并加入班级，这里对于疫情基本情况没有处理，需要手动填写
 
     $phone = "15600000000";       //登录手机号
@@ -20,14 +21,14 @@
 
     //是否需要邮件提示
     $isEmail = false;                  //开启邮件提示
-    $smtpServer = "smtp.xxxxxx.com";   //发送者：smtp服务器地址
-    $smtpPort = 25;                    //发送者：端口号
-    $email = "xxxxxxx@xxx.com";        //发送者：email
-    $password = "************";        //发送者：email密码
-    $name = "自动助手";                 //发送者：名称 
-    $reName = "收件人昵称";             //接收者：名称
-    $reEmail = "xxxxxxxxx@xxx.com";    //接收者：email 可以填发送者email，相当于自己给自己发邮件
-    $title = "健康日报自动报告";         //邮件标题
+    $smtpServer = "smtp.qq.com";      //发送者：smtp服务器地址
+    $smtpPort = 465;                  //发送者：端口号
+    $email = "xxxxx@qq.com";          //发送者：email账号
+    $password = "****************";   //发送者：email密码(qq邮箱需要授权码)
+    $name = "自动助手";                //发送者：名称 
+    $reName = "尊贵的主人";            //接收者：名称
+    $reEmail = "xxxxx@qq.com";    //接收者：email 可以填发送者email，相当于自己给自己发邮件
+    $title = "健康日报自动填写完成(".date('m-d').")";       //邮件标题
 
 
     //开始自动提交
@@ -104,7 +105,7 @@
         //         ."&formdata[fn_4]=".$isSpl
         //         ."&formdata[fn_5]=".$reTou
         //         ."&formdata[fn_6]=".$site;
-        // curl_setopt($curl, CURLOPT_URL, 'http://banjimofang.com/student/course/4914/profiles/29?id=106787');
+        // curl_setopt($curl, CURLOPT_URL, 'http://banjimofang.com/student/course/4914/profiles/29?id=106666');
         // curl_setopt($curl, CURLOPT_POST, true);
         // curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
         // curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded', 'Content-Length: ' . strlen($post)));
@@ -121,7 +122,8 @@
                     ."<li>隔离情况：".$isSpl."</li>"
                     ."<li>最新接触：".$reTou."</li>"
                     ."<li>当前位置：".$site."</li>"
-                    ."</ol>";
+                    ."</ol>"
+                    ."<i>提交时间：".date('Y-m-d H:i:s')."</i>";
             sendEmail($isEmail, $smtpServer, $smtpPort, $email, $password, $name, $reName, $reEmail, $title, $body); 
         }
 
