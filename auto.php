@@ -3,36 +3,44 @@
      * 该代码仅供学习交流，请合理使用，出现任何纠纷与作者无关
      * 疫情期间：请如实报告自己的身体情况
      */
-    require("email.php");
     ini_set('date.timezone','Asia/Shanghai');
-    //在使用以下之前，需要注册好账号，并加入班级，这里对于疫情基本情况没有处理，需要手动填写
+    require("email.php");
+    require("getconfig.php");
 
-    $phone = "15600000000";       //登录手机号
-    $pwd = "12345";               //登录密码
-    $suburl = 'http://banjimofang.com/student/course/4914/profiles/29';   //重点：点击自己班级->健康汇报->每日健康情况，然后复制当前页的浏览器地址url
+    /**
+     * @desc 获取班级魔方用户列表
+    **/
+    $data = getconfig::user("bjmf")[0];
+    for ($i = 0; $i < count($data); $i++) {
 
-    $temp = getTemp(36.3, 37.1);  //体温 36.3~37.2
-    $sig = "无异常";              //表现症状
-    $isTri = "未就医";            //就医情况
-    $isSpl = "未隔离";            //隔离情况
-    $reTou = "无";                //最新接触
-    $site = "抚顺市";             //地址
+        $e = $data[$i];
 
+        $phone = $e["phone"];       //登录手机号
+        $pwd = $e["pwd"];           //登录密码
+        $suburl = $e["suburl"];     //重点：点击自己班级->健康汇报->每日健康情况，然后复制当前页的浏览器地址url
 
-    //是否需要邮件提示
-    $isEmail = false;                  //开启邮件提示
-    $smtpServer = "smtp.qq.com";      //发送者：smtp服务器地址
-    $smtpPort = 465;                  //发送者：端口号
-    $email = "xxxxx@qq.com";          //发送者：email账号
-    $password = "****************";   //发送者：email密码(qq邮箱需要授权码)
-    $name = "自动助手";                //发送者：名称 
-    $reName = "尊贵的主人";            //接收者：名称
-    $reEmail = "xxxxx@qq.com";    //接收者：email 可以填发送者email，相当于自己给自己发邮件
-    $title = "健康日报自动填写完成(".date('m-d').")";       //邮件标题
+        $temp = getTemp(36.3, 37.1);//体温 36.3~37.2
+        $sig = $e["sig"];           //表现症状
+        $isTri = $e["isTri"];       //就医情况
+        $isSpl = $e["isSpl"];       //隔离情况
+        $reTou = $e["reTou"];       //最新接触
+        $site = $e["site"];         //地址
 
 
-    //开始自动提交
-    auto($phone, $pwd, $suburl, $temp, $sig, $isTri, $isSpl, $reTou, $site, $isEmail, $smtpServer, $smtpPort, $email, $password, $name, $reName, $reEmail, $title);
+        //是否需要邮件提示
+        $isEmail = $e["isEmail"];      //开启邮件提示
+        $smtpServer = $e["smtpServer"];//发送者：smtp服务器地址
+        $smtpPort = $e["smtpPort"];    //发送者：端口号
+        $email = $e["email"];          //发送者：email账号
+        $password = $e["password"];    //发送者：email密码(qq邮箱需要授权码)
+        $name = $e["name"];            //发送者：名称
+        $reName = $e["reName"];        //接收者：名称
+        $reEmail = $e["reEmail"];      //接收者：email 可以填发送者email，相当于自己给自己发邮件
+        $title = "健康日报自动填写完成(" . date('m-d') . ")";     //邮件标题
+
+        //开始自动提交
+        auto($phone, $pwd, $suburl, $temp, $sig, $isTri, $isSpl, $reTou, $site, $isEmail, $smtpServer, $smtpPort, $email, $password, $name, $reName, $reEmail, $title);
+    }
     exit();
 
 

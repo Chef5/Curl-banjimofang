@@ -1,0 +1,20 @@
+[
+  {
+    "phone": "15600000000",
+    "pwd": "******",
+    "suburl": "http://banjimofang.com/student/course/4914/profiles/29",
+    "sig": "无异常",
+    "isTri": "未就医",
+    "isSpl": "未隔离",
+    "reTou": "无",
+    "site": "辽宁省xx市xx区xxx街xx号",
+    "isEmail": false,
+    "smtpServer": "smtp.qq.com",
+    "smtpPort": 465,
+    "email": "xxxxx@qq.com",
+    "password": "****************",
+    "name": "自动助手",
+    "reName": "尊贵的主人",
+    "reEmail": "xxxxx@qq.com"
+  }
+]
