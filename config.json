@@ -1,12 +1,12 @@
 [
   {
-    "url": "./user/dxever.json",
+    "url": "user/dxever.json",
     "des": "大学印象数据",
     "open": true,
     "mod": "dxyx"
   },
   {
-    "url": "./user/bjmf.json",
+    "url": "user/bjmf.json",
     "des": "班级魔方数据",
     "open": true,
     "mod": "bjmf"
