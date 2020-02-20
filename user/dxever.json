@@ -1,22 +1,22 @@
 [
-  {
-    "sno": "19********",
-    "pwd": "******",
-    "curlocation": "辽宁省xx市xx区xxx街xx号",
-    "goout": 0,
-    "hp": 0,
-    "ncp": 0,
-    "isncp": 0,
-    "touchncp": 0,
-    "hubei": 0,
-    "ps": "",
-    "isEmail": false,
-    "smtpServer": "smtp.qq.com",
-    "smtpPort": 465,
-    "email": "xxxxx@qq.com",
-    "password": "****************",
-    "name": "自动助手",
-    "reName": "尊贵的主人",
-    "reEmail": "xxxxx@qq.com"
-  }
+	{
+		"sno":"19********",
+		"pwd":"******",
+		"curlocation":"辽宁省xx市xx区xxx街xx号",
+		"goout":0,
+		"hp":0,
+		"ncp":0,
+		"isncp":0,
+		"touchncp":0,
+		"hubei":0,
+		"ps":"",
+		"isEmail":false,
+		"smtpServer":"smtp.qq.com",
+		"smtpPort":465,
+		"email":"xxxxx@qq.com",
+		"password":"****************",
+		"name":"自动助手",
+		"reName":"尊贵的主人",
+		"reEmail":"xxxxx@qq.com"
+	}
 ]
