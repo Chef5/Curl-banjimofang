@@ -4,7 +4,11 @@
 
 **开源项目！该代码仅供学习交流，请合理使用，出现任何纠纷与作者无关**
 
+其他语言实现：
 
+- node实现：[https://github.com/xinmos/checkDay](https://github.com/xinmos/checkDa)
+
+  
 
 ## 二、使用方法
 
@@ -127,3 +131,4 @@ crontab -e
 
 [@Mr-k-bear]( https://github.com/Mr-k-bear)
 
+[@xinmos]( https://github.com/xinmos)
