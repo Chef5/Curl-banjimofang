@@ -6,7 +6,7 @@
 
 其他语言实现：
 
-- node实现：[https://github.com/xinmos/checkDay](https://github.com/xinmos/checkDa)
+- node实现：[https://github.com/xinmos/checkDay](https://github.com/xinmos/checkDay)
 
   
 
