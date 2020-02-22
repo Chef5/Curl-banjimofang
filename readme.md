@@ -7,8 +7,8 @@
 其他语言实现：
 
 - node实现：[https://github.com/xinmos/checkDay](https://github.com/xinmos/checkDay)
-
-  
+- python实现：[https://github.com/xinmos/checkDay/blob/master/check.py](https://github.com/xinmos/checkDay/blob/master/check.py)
+- iOS实现(快捷指令+自动化)：
 
 ## 二、使用方法
 
