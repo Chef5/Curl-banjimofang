@@ -99,12 +99,12 @@ crontab -e
 
 **大学印象**
 ```c
-00 08 * * * php -f /home/test/Curl-banjimofang/dxever.php
+00 08 * * * cd /home/test/Curl-banjimofang && php -f dxever.php
 ```
 
 **班级魔方**
 ```c
-00 08 * * * php -f /home/test/Curl-banjimofang/auto.php
+00 08 * * * cd /home/test/Curl-banjimofang && php -f auto.php
 ```
 
 ### 2.3 开启邮件提醒
